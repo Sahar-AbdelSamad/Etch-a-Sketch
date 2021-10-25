@@ -1,0 +1,22 @@
+:root{
+    --a:16;
+}
+
+.container{
+    width:500px;
+    height: 500px;
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat( var(--a), 1fr);
+    grid-template-rows: repeat( var(--a), 1fr);
+}
+.item{
+    background: #f3f3f3;
+}
+body{
+    background: white;
+}
+button{
+    margin: 10px auto;
+    display:block;
+}
