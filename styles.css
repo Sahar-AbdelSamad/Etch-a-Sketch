@@ -1,13 +1,12 @@
 :root{
     --a:16;
-    --color:pink;
 }
-
 .container{
+    grid-column: 2/4;
+    grid-row: 2/4;
     width:500px;
     height: 500px;
     display: grid;
-    margin: 0 auto;
     grid-template-columns: repeat( var(--a), 1fr);
     grid-template-rows: repeat( var(--a), 1fr);
 }
@@ -16,10 +15,16 @@
 }
 body{
     background: white;
+    display: grid;
 }
-button{
+.clear{
+    grid-column: 2/4;
+    grid-row: 1/2;
+    width: 150px !important;
+}
+.clear, button{
+    width: 300px;
     margin: 10px auto;
-    display:block;
     padding: 4px 20px;
     background: #ccc;
     font-size: large;
@@ -28,4 +33,10 @@ button{
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.19);
     border: 1px solid #ccc;
     border-radius: 5px;
+    display:block;
+} 
+
+.advert{
+    grid-column: 1/2;
+    grid-row: 2/4;
 }
