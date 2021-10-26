@@ -10,6 +10,7 @@ function changeColor(e) {
     this.style.background = "pink";
 }
 
+
 const button = document.querySelector("button");
 button.addEventListener("click", clear);
 function clear() {
