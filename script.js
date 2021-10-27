@@ -1,6 +1,6 @@
-function changeColor(old) {
+function changeColor(c) {
     const items = document.querySelectorAll('.item');
-    items.forEach(item=>item.addEventListener("mouseover",()=> item.style.backgroundColor = old))
+    items.forEach(item=>item.addEventListener("mouseover",()=> item.style.backgroundColor = c ))
 }
 
 function choice(){
@@ -34,9 +34,25 @@ function clear() {
         var item = document.createElement('div');
         item.className = "item";
         div.appendChild(item); 
-        // const items = document.querySelectorAll('.item');
-        // items.forEach(itemX => itemX.addEventListener("mouseover", changeColor));
+        const items = document.querySelectorAll('.item');
+        items.forEach(itemX => itemX.addEventListener("mouseover", changeColor));
     }}
+}
+
+function black(){
+    var alpha=10;
+    var c="rgba("+0+","+0+","+0+","+alpha+"%)";
+    const items = document.querySelectorAll('.item');
+    items.forEach(item=>item.addEventListener("mouseover",()=>
+    {
+    changeColor(c);
+    }))
+    items.forEach(item=>item.addEventListener("transitionend",()=>
+    {
+        alpha+=10;
+        c="rgba("+0+","+0+","+0+","+alpha+"%)";
+        items.forEach(item=>item.addEventListener("mouseover",()=> item.style.backgroundColor=c));
+    }))
 }
 
 const root = document.documentElement;
@@ -47,16 +63,21 @@ for (let x = 0; x < 16 * 16; x++) {
     item.className = "item";
     div.appendChild(item);
 }
+
+
 var choix=choice;
 
 const items = document.querySelectorAll('.item');
-// items.forEach(itemX => itemX.addEventListener("mouseover", changeColor));
+items.forEach(itemX => itemX.addEventListener("mouseover", changeColor));
 
 const buttonColor=document.querySelector('.choice')
 buttonColor.addEventListener("click",choice);
 
 const buttonRandom=document.querySelector('.random')
 buttonRandom.addEventListener("click",col);
+
+const buttonBlack=document.querySelector('.black')
+buttonBlack.addEventListener("click", black);
 
 const button = document.querySelector("button");
 button.addEventListener("click", clear);
