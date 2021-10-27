@@ -45,14 +45,16 @@ function black(){
     const items = document.querySelectorAll('.item');
     items.forEach(item=>item.addEventListener("mouseover",()=>
     {
+        alpha+=5;
+        console.log(alpha);
+        c="rgba("+0+","+0+","+0+","+alpha+"%)";
     changeColor(c);
     }))
-    items.forEach(item=>item.addEventListener("transitionend",()=>
-    {
-        alpha+=10;
-        c="rgba("+0+","+0+","+0+","+alpha+"%)";
-        items.forEach(item=>item.addEventListener("mouseover",()=> item.style.backgroundColor=c));
-    }))
+    // items.forEach(item=>item.addEventListener("transitionend",()=>
+    // {
+        
+    //     items.forEach(item=>item.addEventListener("mouseover",()=> item.style.backgroundColor=c));
+    // }))
 }
 
 const root = document.documentElement;
